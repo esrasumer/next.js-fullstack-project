@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import style from './Navbar.module.css'
+import DarkModeToggle from '../DarkModeToggle/DarkModeToggle'
 
 const links = [
     {
@@ -39,8 +40,9 @@ const links = [
 export default function Navbar() {
     return (
         <div className={style.container}>
-            <Link  href="/" className={style.logo}> Sümer web</Link>
-            <div className={style.links}> 
+            <Link href="/" className={style.logo}> Sümer web</Link>
+            <div className={style.links}>
+                <DarkModeToggle />
                 {links.map((link) => (
                     <Link key={link.id} href={link.url}>
                         {link.title}
@@ -48,7 +50,7 @@ export default function Navbar() {
 
                 ))}
                 <button
-                className={style.logout}
+                    className={style.logout}
                     onClick={() => {
                         console.log("logged out")
                     }}

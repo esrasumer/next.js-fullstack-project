@@ -1,9 +1,28 @@
-import React from 'react'
+import React from "react";
+import styles from "./page.module.css";
+import Link from "next/link";
+import Image from "next/image";
 
-function BlogPost() {
+export default function Blog (){
   return (
-    <div>BlogPost</div>
-  )
-}
-
-export default BlogPost
+    <div className={styles.mainContainer}>
+      {data.map((item) => (
+        <Link href='blog/testId' className={styles.container} key={item.id}>
+          <div className={styles.imageContainer}>
+            <Image
+              src={item.img}
+              alt=""
+              width={400}
+              height={250}
+              className={styles.image}
+            />
+          </div>
+          <div className={styles.content}>
+            <h1 className={styles.title}>{item.title}</h1>
+            <p className={styles.desc}>{item.desc}</p>
+          </div>
+        </Link>
+      ))}
+    </div>
+  );
+};
