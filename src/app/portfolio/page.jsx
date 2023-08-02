@@ -1,22 +1,24 @@
-import React from 'react'
-import style from './page.module.css'
-import Link from 'next/link'
+import React from "react";
+import styles from "./page.module.css";
+import Link from "next/link";
 
-export default function Portfolio() {
+const Portfolio = () => {
   return (
-    <div className={style.container}>
-      <h1 className={style.selectTitle}>Choose a gallery</h1>
-    <div className={style.items}>
-     <Link className={style.item} href="/portfolio/illustrations">  
-      <span>Illustrations </span>
-      </Link>
-     <Link className={style.item} href="/portfolio/websites">  
-      <span>Websites </span>
-      </Link>
-     <Link className={style.item} href="/portfolio/application">  
-      <span>Application </span>
-      </Link>
+    <div className={styles.container}>
+      <h1 className={styles.selectTitle}>Choose a gallery</h1>
+      <div className={styles.items}>
+        <Link href="/portfolio/illustrations" className={styles.item}>
+          <span className={styles.title}>Illustrations</span>
+        </Link>
+        <Link href="/portfolio/websites" className={styles.item}>
+          <span className={styles.title}>Websites</span>
+        </Link>
+        <Link href="/portfolio/application" className={styles.item}>
+          <span className={styles.title}>Application</span>
+        </Link>
+      </div>
     </div>
-    </div>
-  )
-}
+  );
+};
+
+export default Portfolio;

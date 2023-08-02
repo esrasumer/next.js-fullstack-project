@@ -1,32 +1,40 @@
-import React from 'react'
-import style from './page.module.css'
-import Image from 'next/image'
-import Button from '@/companets/Button/button'
+import React from "react";
+import styles from "./page.module.css";
+import Image from "next/image";
+import Button from "@/components/Button/Button";
 
-export default function Contact() {
+export const metadata = {
+  title: "Lama Dev Contact Information",
+  description: "This is Contact Page",
+};
+
+const Contact = () => {
   return (
-    <div className={style.container}>
-      <h1 className={style.title}>Lets Keep in Touch</h1>
-      <div className={style.content}>
-        <div className={style.imgContainer}>
+    <div className={styles.container}>
+      <h1 className={styles.title}>Lets Keep in Touch</h1>
+      <div className={styles.content}>
+        <div className={styles.imgContainer}>
           <Image
             src="/contact.png"
             alt=""
             fill={true}
-            className={style.image}
+            className={styles.image}
           />
         </div>
-        <form className={style.form}>
-          <input type="text" placeholder='name' className={style.input} />
-          <input type="text" placeholder='email' className={style.input} />
+        <form className={styles.form}>
+          <input type="text" placeholder="name" className={styles.input} />
+          <input type="text" placeholder="email" className={styles.input} />
           <textarea
-            placeholder='message'
-            className={style.textarea}
+            className={styles.textArea}
+            placeholder="message"
             cols="30"
-            rows="10"></textarea>
-            <Button url="#" text="Send"/>
+            rows="10"
+          ></textarea>
+          <Button url="#" text="Send"/>
         </form>
       </div>
     </div>
-  )
-}
+  );
+};
+
+export default Contact;

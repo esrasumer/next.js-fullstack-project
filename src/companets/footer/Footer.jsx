@@ -1,18 +1,19 @@
-import React from 'react'
-import style from './Footer.module.css'
-import Image from 'next/image'
+import React from "react";
+import styles from "./footer.module.css";
+import Image from "next/image";
 
-export default function Footer() {
-
-  console.log('Footer')
+const Footer = () => {
   return (
-    <div className={style.container}>
-      <div>☺2023 Sümer. All right reeserved</div>
-      <div className={style.social}>
-        <Image src="/1.png" width={15} height={15}  className={style.icon} alt="Sümer facebook" />
-        <Image src="/2.png" width={15} height={15}  className={style.icon} alt="Sümer instagram" />
-        <Image src="/3.png" width={15} height={15}  className={style.icon} alt="Sümer Youtube" />
+    <div className={styles.container}>
+      <div>©2023 Lamamia. All rights reserved.</div>
+      <div className={styles.social}>
+        <Image src="/1.png" width={15} height={15} className={styles.icon} alt="Lama Dev Facebook Account" />
+        <Image src="/2.png" width={15} height={15} className={styles.icon} alt="Lama Dev" />
+        <Image src="/3.png" width={15} height={15} className={styles.icon} alt="Lama Dev" />
+        <Image src="/4.png" width={15} height={15} className={styles.icon} alt="Lama Dev" />
       </div>
     </div>
-  )
-}
+  );
+};
+
+export default Footer;

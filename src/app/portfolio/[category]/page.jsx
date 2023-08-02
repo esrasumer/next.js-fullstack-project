@@ -1,52 +1,45 @@
-import React from 'react'
-import style from './page.module.css'
-import Button from '@/companets/Button/Button'
-import Image from 'next/image'
+import React from "react";
+import styles from "./page.module.css";
+import Button from "@/components/Button/Button";
+import Image from "next/image";
+import { items } from "./data.js";
+import { notFound } from "next/navigation";
 
-export default function Category({ params }) {
-  console.log(params)
+const getData = (cat) => {
+  const data = items[cat];
+
+  if (data) {
+    return data;
+  }
+
+  return notFound();
+};
+
+const Category = ({ params }) => {
+  const data = getData(params.category);
   return (
-    <div className={style.container}>
-      <h1 className={style.catTitle}>{params.category}</h1>
-      <div className={style.item}>
-        <div className={style.content}>
-          <h1  className={style.catTitle}>Test</h1>
-          <p>Desc</p>
-          <Button text="See More" url="#" />
+    <div className={styles.container}>
+      <h1 className={styles.catTitle}>{params.category}</h1>
+
+      {data.map((item) => (
+        <div className={styles.item} key={item.id}>
+          <div className={styles.content}>
+            <h1 className={styles.title}>{item.title}</h1>
+            <p className={styles.desc}>{item.desc}</p>
+            <Button text="See More" url="#" />
+          </div>
+          <div className={styles.imgContainer}>
+            <Image
+              className={styles.img}
+              fill={true}
+              src={item.image}
+              alt=""
+            />
+          </div>
         </div>
-        <div className={style.imgContainer}>
-          <Image
-            alt=''
-            fill={true}
-            src='https://images.pexels.com/photos/879537/pexels-photo-879537.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1' />
-        </div>
-      </div>
-      <div className={style.item}>
-        <div className={style.content}>
-          <h1  className={style.catTitle}>Test</h1>
-          <p>Desc</p>
-          <Button text="See More" url="#" />
-        </div>
-        <div className={style.imgContainer}>
-          <Image
-            alt=''
-            fill={true}
-            src='https://images.pexels.com/photos/879537/pexels-photo-879537.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1' />
-        </div>
-      </div>
-      <div className={style.item}>
-        <div className={style.content}>
-          <h1  className={style.catTitle}>Test</h1>
-          <p>Desc</p>
-          <Button text="See More" url="#" />
-        </div>
-        <div className={style.imgContainer}>
-          <Image
-            alt=''
-            fill={true}
-            src='https://images.pexels.com/photos/879537/pexels-photo-879537.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1' />
-        </div>
-      </div>
+      ))}
     </div>
-  )
-}
+  );
+};
+
+export default Category;
